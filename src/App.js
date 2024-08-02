@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css'; // Ensure this file exists for styling
+import './styles.css';
 
 function App() {
   const [jsonInput, setJsonInput] = useState('');
@@ -14,7 +14,7 @@ function App() {
   const handleSubmit = async () => {
     try {
       // Validate JSON input
-      JSON.parse(jsonInput);
+      const parsedData = JSON.parse(jsonInput);
 
       // Make API call
       const res = await fetch('http://127.0.0.1:8000/bfhl/data', {
@@ -22,7 +22,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: jsonInput,
+        body: JSON.stringify({ data: parsedData.data }),
       });
 
       if (!res.ok) {
@@ -30,6 +30,7 @@ function App() {
       }
 
       const data = await res.json();
+      // console.log(data);
 
       // Set response and available dropdown options
       setResponse(data);
@@ -61,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{/* Your roll number */}</h1>
+      <h1>RA2111047010138</h1>
       <textarea
         rows="4"
         cols="50"
