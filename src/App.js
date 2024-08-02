@@ -37,6 +37,7 @@ function App() {
       setDropdownOptions(['Alphabets', 'Numbers', 'Highest alphabet']);
       setError(null);
     } catch (e) {
+      console.log(e);
       setError('Invalid JSON input or server error');
       setResponse(null);
     }
