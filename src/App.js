@@ -17,7 +17,7 @@ function App() {
       JSON.parse(jsonInput);
 
       // Make API call
-      const res = await fetch('http://127.0.0.1:8000/api/data', {
+      const res = await fetch('http://127.0.0.1:8000/bfhl/data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
